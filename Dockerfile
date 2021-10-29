@@ -18,5 +18,7 @@ RUN buildDeps="sudo make gcc g++ libc-dev" \
 
 COPY fluent.conf /fluentd/etc/
 COPY entrypoint.sh /bin/
+RUN mkdir -p /fluentd/log/elastic-buffer
+RUN chown -R fluent:fluent /fluentd/log/elastic-buffer
 
 USER fluent
